@@ -1,12 +1,15 @@
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& nums, int target) {
-        for (int first = 0; first < nums.size(); first++){
-			//For every first ...
-            for (int second = first + 1; second < nums.size(); second++){
-				//... and second, ...
-                if (nums[first] + nums[second] == target){
-				//... if nums[first] + nums[second] == target then return {first, second}.
-                    return {first, second};
-                }
+public class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        HashMap<Integer,Integer> indexMap = new HashMap<Integer,Integer>();
+        for(int i = 0; i < numbers.length; i++){
+            Integer requiredNum = (Integer)(target - numbers[i]);
+            if(indexMap.containsKey(requiredNum)){
+                int toReturn[] = {indexMap.get(requiredNum), i};
+                return toReturn;
             }
+
+            indexMap.put(numbers[i], i);
+        }
+        return null;
+    }
+}
