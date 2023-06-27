@@ -29,7 +29,7 @@ class Solution {
             pairList.add(pair.getKey());
             pairList.add(pair.getValue());
             ans.add(pairList);
-        
+        }
 
         return ans;
     }
