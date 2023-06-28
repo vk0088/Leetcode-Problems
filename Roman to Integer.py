@@ -13,4 +13,4 @@ class Solution:
             i += 1
         if i != len(s):
             sums += maps[s[-1]]
-        return sums
+        return sum
