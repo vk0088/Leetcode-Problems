@@ -14,7 +14,7 @@ class Solution {
                         grid[a][b] = grid[i][j] + 1;
                         q.add(a + (b << 7));
                     }
-        }
+        
         return -1;
     }
 }
