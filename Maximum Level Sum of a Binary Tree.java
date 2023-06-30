@@ -13,7 +13,7 @@ class Solution {
            levelSum+=node.val;
            if(node.left!=null) qu.add(node.left);
            if(node.right!=null) qu.add(node.right);
-        
+        }
        if(levelSum>maxSum){
          maxSum=levelSum;
          minLevel=level;  
