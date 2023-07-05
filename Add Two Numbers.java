@@ -14,7 +14,7 @@ int sum = 0;
          sum = sum + l2.val;
          l2 = l2.next;
      }
-     opr.next = new ListNode(sum%10);
+     opr.next = new ListNode(sum%10)
      sum = sum/10;
      opr = opr.next;
  }
