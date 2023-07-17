@@ -15,6 +15,6 @@ class Solution {
             }
         }
 
-        return answerKey.length() - i;
+        return answerKey.length() - i
     }
 }
