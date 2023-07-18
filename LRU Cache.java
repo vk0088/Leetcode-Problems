@@ -52,7 +52,7 @@ class LRUCache {
             m.put(key, head.next);
             return ans;
         }
-        return -1;
+        return -1
     }
 
     public void put(int key, int value) {
