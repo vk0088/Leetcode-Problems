@@ -10,5 +10,5 @@ class Solution {
             return Math.min(left, right) + 1;
 
         return Math.max(left, right) + 1;
-    }
+    
 }
