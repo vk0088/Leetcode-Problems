@@ -23,7 +23,7 @@ class Solution {
             }
             maxLength = Math.max(maxLength, dp[i]);
         
-
+        }
         int result = 0;
         for (int i = 0; i < n; i++) {
             if (dp[i] == maxLength) {
