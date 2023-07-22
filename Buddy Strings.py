@@ -19,5 +19,5 @@ class Solution:
             s_list[i], s_list[j] = s_list[j], s_list[i]
             s = ''.join(s_list)
 
-        return s == goal
+        return s == goa
         
