@@ -22,7 +22,7 @@ class Solution {
                     }
                 }
             
-
+            }
             saved.put(n, list);
         }
         return saved.get(n);
