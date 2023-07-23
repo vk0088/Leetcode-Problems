@@ -21,7 +21,7 @@ class Solution {
                         }
                     }
                 }
-            }
+            
 
             saved.put(n, list);
         }
