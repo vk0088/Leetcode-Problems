@@ -30,7 +30,7 @@ class LRUCache {
 
         head.next = newnode;
         temp.prev = newnode;
-    }
+    
 
     private void deleteNode(Node delnode) {
         Node prevv = delnode.prev;
