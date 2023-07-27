@@ -13,7 +13,7 @@ public class Solution {
                 right = time - 1;
         }
         return left;
-    
+    }
     
     public boolean check(int [] B, int n, long time){
         long sum = 0;
