@@ -9,7 +9,7 @@ class Solution {
         if (k == 0) {
             result.add(new ArrayList<>(combination));
             return;
-        
+        }
         for (int i = start; i <= n - k + 1; i++) {
             combination.add(i);
             generateCombinations(i + 1, n, k - 1, combination, result);
