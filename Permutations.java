@@ -17,7 +17,7 @@ class Solution {
                 per[i] = 11;
             }
         }
-    }
+    
 
     public List<List<Integer>> permute(int[] nums) {
         int n = nums.length;
