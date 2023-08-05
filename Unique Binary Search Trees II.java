@@ -20,7 +20,7 @@ class Solution {
                     current_tree.left = l;
                     current_tree.right = r;
                     all_trees.add(current_tree);
-                
+                }
             }
         }
         return all_trees;
