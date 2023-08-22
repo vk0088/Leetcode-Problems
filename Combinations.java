@@ -15,5 +15,5 @@ class Solution {
             generateCombinations(i + 1, n, k - 1, combination, result);
             combination.remove(combination.size() - 1);
         }
-    
+    }
 }
