@@ -8,7 +8,7 @@ public:
         {
             int mid = l + (r-l) / 2;
             if (nums[mid] == target)
-                return true;
+                return true
 			// with duplicates we can have this contdition, just update left & right
             if((nums[l] == nums[mid]) && (nums[r] == nums[mid]))
             {
