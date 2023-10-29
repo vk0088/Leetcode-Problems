@@ -10,4 +10,4 @@ class Solution:
     
             if(rev == init_n):
                        return True
-            return False
+            return Fals
