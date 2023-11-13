@@ -1,55 +1,53 @@
-class Solution{
+class Solution {
+    public int numBusesToDestination(int[][] routes, int source, int target) {
+        if (source == target) {
+            return 0;
+        }
 
-public static int numBusesToDestination(
-	final int[][] routeToStops,
-	final int src,
-	final int dst
-){
-	Map<Integer, List<Integer>> stopToRoutes = new HashMap<>();
-	for (int route = 0; route < routeToStops.length; route += 1){
-		for (final int stop : routeToStops[route]){
-			List<Integer> routes = stopToRoutes.getOrDefault( stop, new ArrayList<>() );
-			routes.add(route);
-			stopToRoutes.put(stop, routes);
-		}
-	}
+        HashMap<Integer, ArrayList<Integer>> adjList = new HashMap<>();
+        // Create a map from the bus stop to all the routes that include this stop.
+        for (int r = 0; r < routes.length; r++) {
+            for (int stop : routes[r]) {
+                // Add all the routes that have this stop.
+                ArrayList<Integer> route = adjList.getOrDefault(stop, new ArrayList<>());
+                route.add(r);
+                adjList.put(stop, route);
+            }
+        }
 
-	Set<Integer> visitedRoutes = new HashSet<>();
-	Set<Integer> visitedStops = new HashSet<>();
-	Queue<Integer> bfsQueue = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
+        Set<Integer> vis = new HashSet<Integer>(routes.length);
+        // Insert all the routes in the queue that have the source stop.
+        for (int route : adjList.get(source)) {
+            q.add(route);
+            vis.add(route);
+        }
 
-	if (src == dst){
-		return 0;
-	}
-	visitedStops.add(src);
-	bfsQueue.add(src);
+        int busCount = 1;
+        while (!q.isEmpty()) {
+            int size = q.size();
 
-	for (int busCnt = 1; !bfsQueue.isEmpty(); busCnt += 1){
-		for (int cntDown = bfsQueue.size(); cntDown > 0; cntDown -= 1){
-			final int curStop = bfsQueue.remove();
+            for (int i = 0; i < size; i++) {
+                int route = q.remove();
 
-			for ( final int nextRoute : stopToRoutes.get(curStop) ){
-				if ( visitedRoutes.contains(nextRoute) ){
-					continue;
-				}
+                // Iterate over the stops in the current route.
+                for (int stop: routes[route]) {
+                    // Return the current count if the target is found.
+                    if (stop == target) {
+                        return busCount;
+                    }
 
-				visitedRoutes.add(nextRoute);
-				for (final int nextStop : routeToStops[nextRoute]){
-					if ( visitedStops.contains(nextStop) ){
-						continue;
-					}
-
-					if (nextStop == dst){
-						return busCnt;
-					}
-					visitedStops.add(nextStop);
-					bfsQueue.add(nextStop);
-				}
-			}
-		}
-	}
-
-	return -1;
-}
-
-}
+                    // Iterate over the next possible routes from the current stop.
+                    for (int nextRoute : adjList.get(stop)) {
+                        if (!vis.contains(nextRoute)) {
+                            vis.add(nextRoute);
+                            q.add(nextRoute);
+                        }
+                    }
+                }
+            }
+            busCount++;
+        }
+        return -1;
+    }
+};
